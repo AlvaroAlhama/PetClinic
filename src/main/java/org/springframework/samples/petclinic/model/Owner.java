@@ -101,6 +101,12 @@ public class Owner extends Person {
 		PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true, true));
 		return Collections.unmodifiableList(sortedPets);
 	}
+	
+	public void deletePet(Pet pet) {
+		getPetsInternal().remove(pet);
+
+	}
+	
 
 	public void addPet(Pet pet) {
 		getPetsInternal().add(pet);

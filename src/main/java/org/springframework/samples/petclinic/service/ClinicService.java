@@ -92,6 +92,12 @@ public class ClinicService {
 	public void savePet(Pet pet) throws DataAccessException {
 		petRepository.save(pet);
 	}
+	
+	@Transactional
+	public void deletePet(Pet pet) throws DataAccessException {
+		petRepository.delete(pet);
+	}
+	
 
 	@Transactional(readOnly = true)
 	@Cacheable(value = "vets")
