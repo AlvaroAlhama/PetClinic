@@ -1,1 +1,19 @@
-Hola soy mongolo
+Problemas que hemos tenido con las implementaciones:
+
+Alvaro -> 1.Problema con nombre de las columnas, no se ven por el color. 
+          2.Ningún problema con delete owner
+          
+Fernando -> 1.Ningún problema con internacionalización/message welcome.
+            2.No esta implementada la vista de edit vet.
+            
+Ignacio -> 1.Problema con la implementación del delete pet, no borra la pet.
+           2.Error al crear vet, no puede crear especialidad.
+
+Juan Luis -> 1.Problema con la implementación del delete pet, no borra la pet.
+             2.Ningún problema con el css.
+
+Juan Pablo -> 1.Problema con la implementación del delete pet, no borra la pet.
+              2.Problema con la vista del edit vet. No se cambia la especialidad
+
+Yoana -> 1.Ningún problema con internacionalización/message welcome.
+         2.No tiene datos sobre problemas ni tiempo en toggl de los otros.
