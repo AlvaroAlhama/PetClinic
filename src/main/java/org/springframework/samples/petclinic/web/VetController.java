@@ -16,10 +16,13 @@
 package org.springframework.samples.petclinic.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Vets;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Map;
@@ -60,5 +63,14 @@ public class VetController {
 		vets.getVetList().addAll(this.clinicService.findVets());
 		return vets;
 	}
+	
+
+	@RequestMapping(value = "/vets/{vetId}/delete")
+	public String processDeleteForm(@PathVariable("vetId") int vetId) {
+	    
+			Vet vet = clinicService.findVetById(vetId);
+			this.clinicService.deleteVet(vet);
+			return "redirect:/vets;";
+		}
 
 }
