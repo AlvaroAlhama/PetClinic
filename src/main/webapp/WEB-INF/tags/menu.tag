@@ -1,6 +1,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ attribute name="name" required="true" rtexprvalue="true"
               description="Name of the active menu: home, owners, vets or error" %>
 
@@ -20,17 +21,17 @@
 
                 <petclinic:menuItem active="${name eq 'home'}" url="/" title="home page">
                     <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
-                    <span>Home</span>
+                    <span><fmt:message key="home"/></span>
                 </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'owners'}" url="/owners/find" title="find owners">
                     <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                    <span>Find owners</span>
+                    <span><fmt:message key="owner"/></span>
                 </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'vets'}" url="/vets" title="veterinarians">
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                    <span>Veterinarians</span>
+                    <span><fmt:message key="vet"/></span>
                 </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'error'}" url="/oups"
