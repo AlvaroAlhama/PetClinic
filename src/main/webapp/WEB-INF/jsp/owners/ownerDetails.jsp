@@ -70,6 +70,10 @@
                             <th>Fecha de visita</th>
                             <th>Descripción</th>
                         </tr>
+                        <tr>
+                            <th>Fecha de registro</th>
+                            <th>Fecha de salida</th>
+                        </tr>
                         </thead>
                         <c:forEach var="visit" items="${pet.visits}">
                             <tr>
@@ -77,7 +81,20 @@
                                 <td><c:out value="${visit.description}"/></td>
                             </tr>
                         </c:forEach>
+                        <c:forEach var="residence" items="${pet.residences}">
+                            <tr>
+                                <td><petclinic:localDate date="${residence.registerDate}" pattern="yyyy-MM-dd"/></td>
+                                <td><petclinic:localDate date="${residence.releaseDate}" pattern="yyyy-MM-dd"/></td>
+                            </tr>
+                        </c:forEach>
                         <tr>
+                        	<td>
+                                <spring:url value="/owners/{ownerId}/pets/{petId}/residences/new" var="residenceUrl">
+                                    <spring:param name="ownerId" value="${owner.id}"/>
+                                    <spring:param name="petId" value="${pet.id}"/>
+                                </spring:url>
+                                <a href="${fn:escapeXml(residenceUrl)}">Añadir alojamiento</a>
+                            </td>
                             <td>
                                 <spring:url value="/owners/{ownerId}/pets/{petId}/edit" var="petUrl">
                                     <spring:param name="ownerId" value="${owner.id}"/>
