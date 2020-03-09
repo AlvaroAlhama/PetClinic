@@ -9,6 +9,7 @@ Alvaro -> 1.Problema con nombre de las columnas, no se ven por el color.
           
 Fernando -> 1.Al no estar clara la implementación de la internacionalización, se ha tenido que repetir esta tarea.
             2.No esta implementada la vista de edit vet.
+            3.El proyecto no estaba vinculado con el repositorio, hemos tenido que realizar el trabajo de nuevo para hotel. 
             
 Ignacio -> 1.Problema con la implementación del delete pet, no borra la pet.
            2.Error al crear vet, no puede crear especialidad.
