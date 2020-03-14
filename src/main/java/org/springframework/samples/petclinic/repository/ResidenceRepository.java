@@ -10,5 +10,9 @@ public interface ResidenceRepository {
 	void save(Residence residence) throws DataAccessException;
 
 	List<Residence> findByPetId(Integer petId);
+	
+	void delete(Residence residence) throws DataAccessException;
+	
+	Residence findById(int id) throws DataAccessException;
 
 }

@@ -128,4 +128,9 @@ public class Pet extends NamedEntity {
 		return Collections.unmodifiableList(sortedResidences);
 	}
 
+	public void deleteResidence(Residence residence) {
+		getResidencesInternal().remove(residence);
+
+	}
+	
 }

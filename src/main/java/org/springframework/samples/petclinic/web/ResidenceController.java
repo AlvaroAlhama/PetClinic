@@ -1,11 +1,14 @@
 package org.springframework.samples.petclinic.web;
 
+import java.util.Collection;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
+import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Residence;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
@@ -16,10 +19,11 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ResidenceController {
-	
+
 	private final ClinicService clinicService;
 
 	@Autowired
@@ -49,8 +53,7 @@ public class ResidenceController {
 	public String processNewResidenceForm(@Valid Residence residence, BindingResult result) {
 		if (result.hasErrors()) {
 			return "pets/createOrUpdateResidenceForm";
-		}
-		else {
+		} else {
 			this.clinicService.saveResidence(residence);
 			return "redirect:/owners/{ownerId}";
 		}
@@ -60,6 +63,17 @@ public class ResidenceController {
 	public String showResidences(@PathVariable int petId, Map<String, Object> model) {
 		model.put("residences", this.clinicService.findPetById(petId).getResidences());
 		return "residenceList";
+	}
+
+	@RequestMapping(value = "/owners/{ownerId}/pets/{petId}/residences/{residenceId}/delete")
+	public String processDeleteForm(@PathVariable("residenceId") int residenceId, 
+			@PathVariable("ownerId") int ownerId,
+			@PathVariable("petId") int petId) {
+		Pet pet = clinicService.findPetById(petId);
+		Residence residence = clinicService.findResidenceById(residenceId);
+		pet.deleteResidence(residence);
+		this.clinicService.deleteResidence(residence);
+		return "redirect:/owners/{ownerId}";
 	}
 
 }
