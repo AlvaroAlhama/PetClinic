@@ -41,6 +41,6 @@ public interface VetRepository {
 	
 	void delete(Vet vet) throws DataAccessException;
 
-	Vet findById(int id) throws DataAccessException;;
+	Vet findById(int id) throws DataAccessException;
 
 }
