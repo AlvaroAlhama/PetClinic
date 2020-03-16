@@ -94,6 +94,16 @@ public class ClinicService {
 		visitRepository.save(visit);
 	}
 
+	@Transactional
+	public void deleteVisit(Visit visit)  {
+		visitRepository.delete(visit);
+	}
+
+
+	public Visit findVisitsById(int visitId) {
+		return visitRepository.findById(visitId);
+	}
+
 	@Transactional(readOnly = true)
 	public Pet findPetById(int id) throws DataAccessException {
 		return petRepository.findById(id);
@@ -139,6 +149,7 @@ public class ClinicService {
 		return visitRepository.findByPetId(petId);
 	}
 
+
 	@Transactional
 	public void saveResidence(Residence residence) throws DataAccessException {
 		residenceRepository.save(residence);
@@ -157,5 +168,6 @@ public class ClinicService {
 	public void deleteResidence(Residence residence) throws DataAccessException {
 		residenceRepository.delete(residence);
 	}
+
 
 }
