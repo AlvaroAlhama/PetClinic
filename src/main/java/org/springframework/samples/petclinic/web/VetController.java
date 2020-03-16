@@ -119,5 +119,13 @@ public class VetController {
 			return "redirect:/vets/{vetId}";
 		}
 	}
+	
+	@GetMapping(value = "/vets/{vetId}/delete")
+	public String processDeleteForm(@PathVariable("vetId") int vetId) {
+	    
+			Vet vet = clinicService.findVetById(vetId);
+			this.clinicService.deleteVet(vet);
+			return "redirect:/vets";
+		}
 
 }

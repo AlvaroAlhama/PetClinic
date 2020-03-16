@@ -65,7 +65,7 @@ public class ResidenceController {
 		return "residenceList";
 	}
 
-	@RequestMapping(value = "/owners/{ownerId}/pets/{petId}/residences/{residenceId}/delete")
+	@GetMapping(value = "/owners/{ownerId}/pets/{petId}/residences/{residenceId}/delete")
 	public String processDeleteForm(@PathVariable("residenceId") int residenceId, 
 			@PathVariable("ownerId") int ownerId,
 			@PathVariable("petId") int petId) {

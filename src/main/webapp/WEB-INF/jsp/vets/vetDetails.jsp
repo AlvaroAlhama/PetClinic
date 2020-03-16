@@ -20,6 +20,10 @@
         <spring:param name="vetId" value="${vet.id}"/>
     </spring:url>
     <a href="${fn:escapeXml(editUrl)}" class="btn btn-default">Edit Vet</a>
+    <spring:url value="{vetId}/delete" var="deleteUrl">
+        <spring:param name="vetId" value="${vet.id}"/>
+    </spring:url>
+    <a href="${fn:escapeXml(deleteUrl)}" class="btn btn-default">Delete Vet</a>
 
     <br/>
     <br/>
