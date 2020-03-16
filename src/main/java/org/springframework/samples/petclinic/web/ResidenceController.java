@@ -31,6 +31,12 @@ public class ResidenceController {
 	public void setAllowedFields(WebDataBinder dataBinder) {
 		dataBinder.setDisallowedFields("id");
 	}
+	
+	@InitBinder("residence")
+	public void initPetBinder(WebDataBinder dataBinder) {
+		dataBinder.setValidator(new ResidenceValidator());
+	}
+
 
 	@ModelAttribute("residence")
 	public Residence loadPetWithResidence(@PathVariable("petId") int petId) {
