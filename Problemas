@@ -6,6 +6,7 @@ Alvaro -> 1.Problema con nombre de las columnas, no se ven por el color.
           eran String, arreglándolo con un formatter.
           4.No se creaba la tabla automáticamente. Se soluciona añadiendola manualmente.
           5.No dejaba leer pet desde Residence. Añadir los getters y setters en el model.
+          6.Se podía dejar Residence vacío, se solucionó con validate.
           
 Fernando -> 1.Al no estar clara la implementación de la internacionalización, se ha tenido que repetir esta tarea.
             2.No esta implementada la vista de edit vet.
