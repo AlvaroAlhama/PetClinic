@@ -33,7 +33,7 @@ public class ResidenceController {
 	}
 	
 	@InitBinder("residence")
-	public void initPetBinder(WebDataBinder dataBinder) {
+	public void initResidenceBinder(WebDataBinder dataBinder) {
 		dataBinder.setValidator(new ResidenceValidator());
 	}
 
