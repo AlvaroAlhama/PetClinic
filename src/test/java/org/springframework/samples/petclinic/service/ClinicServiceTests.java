@@ -15,9 +15,9 @@
  */
 package org.springframework.samples.petclinic.service;
 
-import java.security.Provider.Service;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.security.Provider.Service;
 import java.time.LocalDate;
 import java.util.Collection;
 
@@ -32,7 +32,6 @@ import org.springframework.samples.petclinic.model.PetType;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.util.EntityUtils;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -4,9 +4,13 @@ Alvaro -> 1.Problema con nombre de las columnas, no se ven por el color.
           2.Ningún problema con delete owner.
           3.Al ayudar a hacer create/edit vet, me encontré con el problema de que los parámetros seleccionados para la especialidad
           eran String, arreglándolo con un formatter.
+          4.No se creaba la tabla automáticamente. Se soluciona añadiendola manualmente.
+          5.No dejaba leer pet desde Residence. Añadir los getters y setters en el model.
+          6.Se podía dejar Residence vacío, se solucionó con validate.
           
 Fernando -> 1.Al no estar clara la implementación de la internacionalización, se ha tenido que repetir esta tarea.
             2.No esta implementada la vista de edit vet.
+            3.El proyecto no estaba vinculado con el repositorio, hemos tenido que realizar el trabajo de nuevo para hotel. 
             
 Ignacio -> 1.Problema con la implementación del delete pet, no borra la pet.
            2.Error al crear vet, no puede crear especialidad.
