@@ -6,13 +6,13 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="vets">
-    <h2>Veterinarians</h2>
+    <h2>Veterinarios</h2>
 
     <table id="vetsTable" class="table table-striped">
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Specialties</th>
+            <th>Nombre</th>
+            <th>Especialidades</th>
         </tr>
         </thead>
         <tbody>
@@ -35,7 +35,7 @@
         </tbody>
     </table>
     
-    <a class="btn btn-default" href='<spring:url value="/vets/new" htmlEscape="true"/>'>Add Vet</a>
+    <a class="btn btn-default" href='<spring:url value="/vets/new" htmlEscape="true"/>'>Anadir veterinario</a>
 
     <table class="table-buttons">
         <tr>

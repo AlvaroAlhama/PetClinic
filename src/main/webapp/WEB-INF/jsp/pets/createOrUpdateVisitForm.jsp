@@ -16,7 +16,7 @@
     <jsp:body>
         <h2><c:if test="${visit['new']}">Nueva </c:if>visita</h2>
 
-        <b>Pet</b>
+        <b>Mascota</b>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -37,13 +37,13 @@
         <form:form modelAttribute="visit" class="form-horizontal">
             <div class="form-group has-feedback">
                 <petclinic:inputField label="Fecha" name="date"/>
-                <petclinic:inputField label="Descripción" name="description"/>
+                <petclinic:inputField label="Descripcion" name="description"/>
             </div>
 
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
                     <input type="hidden" name="petId" value="${visit.pet.id}"/>
-                    <button class="btn btn-default" type="submit">Añadir visita</button>
+                    <button class="btn btn-default" type="submit">Anadir visita</button>
                 </div>
             </div>
         </form:form>
@@ -53,7 +53,7 @@
         <table class="table table-striped">
             <tr>
                 <th>Fecha</th>
-                <th>Descripción</th>
+                <th>Descripcion</th>
             </tr>
             <c:forEach var="visit" items="${visit.pet.visits}">
                 <c:if test="${!visit['new']}">

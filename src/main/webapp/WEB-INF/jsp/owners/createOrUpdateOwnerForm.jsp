@@ -8,15 +8,15 @@
 
 <petclinic:layout pageName="owners">
     <h2>
-        <c:if test="${owner['new']}">Nuevo </c:if>propietario
+        <c:if test="${owner['new']}">Nuevo </c:if>Propietario
     </h2>
     <form:form modelAttribute="owner" class="form-horizontal" id="add-owner-form">
         <div class="form-group has-feedback">
             <petclinic:inputField label="Nombre" name="firstName"/>
             <petclinic:inputField label="Apellidos" name="lastName"/>
-            <petclinic:inputField label="Dirección" name="address"/>
+            <petclinic:inputField label="Direccion" name="address"/>
             <petclinic:inputField label="Ciudad" name="city"/>
-            <petclinic:inputField label="Teléfono" name="telephone"/>
+            <petclinic:inputField label="Telefono" name="telephone"/>
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
@@ -25,7 +25,7 @@
                         <button class="btn btn-default" type="submit">Crear propietario</button>
                     </c:when>
                     <c:otherwise>
-                        <button class="btn btn-default" type="submit">Actualizar dueño</button>
+                        <button class="btn btn-default" type="submit">Actualizar dueno</button>
                     </c:otherwise>
                 </c:choose>
             </div>
