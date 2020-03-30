@@ -34,7 +34,7 @@ public class ResidenceController {
 	
 	@InitBinder("residence")
 	public void initResidenceBinder(WebDataBinder dataBinder) {
-		dataBinder.setValidator(new ResidenceValidator());
+		dataBinder.setValidator(new ResidenceValidator(clinicService));
 	}
 
 
