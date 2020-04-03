@@ -6,6 +6,7 @@ DROP TABLE pets IF EXISTS;
 DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
 DROP TABLE residences IF EXISTS;
+DROP TABLE causes IF exists;
 
 
 CREATE TABLE vets (
@@ -72,3 +73,11 @@ CREATE TABLE residences (
 );
 ALTER TABLE residences ADD CONSTRAINT fk_residences_pets FOREIGN KEY (pet_id) REFERENCES pets (id);
 CREATE INDEX residences_pet_id ON residences (pet_id);
+
+CREATE TABLE causes (
+  id        INTEGER IDENTITY PRIMARY KEY,
+  name      VARCHAR(30),
+  description   VARCHAR(60),
+  end_date DATE,
+  objetive INTEGER NOT NULL
+);

@@ -11,14 +11,21 @@
     <table id="causeTable" class="table table-striped">
         <thead>
         <tr>
-            <th style="width: 150px;">Name</th>
+             <th style="width: 150px;">Name</th>
+             <th style="width: 200px;">Description</th>
+             <th style="width: 120px">End date</th>
+             <th style="width: 120px">Objetive</th>
+            
         </tr>
         </thead>
         <tbody>
         <c:forEach items="${causes}" var="cause">
             <tr>
-                <td>
-                    <c:out value="${cause.name}"/>
+               
+                    <td><c:out value="${cause.name}"/></td>  
+                    <td><c:out value="${cause.description}"/> </td> 
+                    <td><c:out value="${cause.endDate}"/> </td> 
+                    <td><c:out value="${cause.objetive}"/> (EUR) </td> 
                 </td>                
             </tr>
         </c:forEach>

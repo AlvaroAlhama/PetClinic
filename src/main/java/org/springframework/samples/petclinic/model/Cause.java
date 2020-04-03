@@ -25,5 +25,31 @@ public class Cause extends NamedEntity {
 	@NotNull
 	@Column(name = "objetive")
 	private Integer objetive;
+	
+	
+	
+	public LocalDate getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(LocalDate endDate) {
+		this.endDate = endDate;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Integer getObjetive() {
+		return objetive;
+	}
+
+	public void setObjetive(Integer objetive) {
+		this.objetive = objetive;
+	}
 
 }

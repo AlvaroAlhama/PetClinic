@@ -19,7 +19,7 @@
             <div class="form-group has-feedback">
                 <petclinic:inputField label="Enter name" name="name"/>
                 <petclinic:inputField label="Enter description" name="description"/>
-                <petclinic:inputField label="Enter objetive (€)" name="objetive"/>
+                <petclinic:inputField label="Enter objetive (EUR)" name="objetive"/>
                 <petclinic:inputField label="Cause end date" name="endDate"/>
                 
             </div>

@@ -56,12 +56,12 @@ public class ClinicService {
 	private VisitRepository visitRepository;
 
 	private ResidenceRepository residenceRepository;
-	
+
 	private CauseRepository CauseRepository;
 
 	@Autowired
 	public ClinicService(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository,
-			VisitRepository visitRepository, ResidenceRepository residenceRepository, CauseRepository causeRepository ) {
+			VisitRepository visitRepository, ResidenceRepository residenceRepository, CauseRepository causeRepository) {
 		this.petRepository = petRepository;
 		this.vetRepository = vetRepository;
 		this.ownerRepository = ownerRepository;
@@ -101,10 +101,9 @@ public class ClinicService {
 	}
 
 	@Transactional
-	public void deleteVisit(Visit visit)  {
+	public void deleteVisit(Visit visit) {
 		visitRepository.delete(visit);
 	}
-
 
 	public Visit findVisitsById(int visitId) {
 		return visitRepository.findById(visitId);
@@ -155,7 +154,6 @@ public class ClinicService {
 		return visitRepository.findByPetId(petId);
 	}
 
-
 	@Transactional
 	public void saveResidence(Residence residence) throws DataAccessException {
 		residenceRepository.save(residence);
@@ -174,25 +172,20 @@ public class ClinicService {
 	public void deleteResidence(Residence residence) throws DataAccessException {
 		residenceRepository.delete(residence);
 	}
-	
-	
-	//Cause
-	
-	
+
+	// Cause
+
 	public void addCause(Cause cause) {
 		CauseRepository.save(cause);
-		}
-	
+	}
 
 	public Iterable<Cause> findAll() {
 		return this.CauseRepository.findAll();
 	}
-	
 
 	public Optional<Cause> findById(Integer causeId) {
-		
+
 		return this.CauseRepository.findById(causeId);
 	}
-
 
 }
