@@ -51,3 +51,8 @@ INSERT INTO visits VALUES (1, 7, '2013-01-01', 'rabies shot');
 INSERT INTO visits VALUES (2, 8, '2013-01-02', 'rabies shot');
 INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
+
+
+INSERT INTO causes VALUES(1,'Dog help','Help a injured dog','2020-09-07',100);
+INSERT INTO causes VALUES(2,'Cat help','Help a injured dog','2020-10-07',100);
+

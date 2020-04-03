@@ -1,7 +1,7 @@
 <%@ page session="false" trimDirectiveWhitespaces="true" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %> 
 
 <petclinic:layout pageName="home">
     <h2><fmt:message key="welcome"/></h2>
@@ -11,4 +11,9 @@
             <img class="img-responsive" src="${petsImage}"/>
         </div>
     </div>
+    
+    <div>
+        <h3>Causes</h3>
+        <a class="btn btn-default" href='<spring:url value="/cause" htmlEscape="true"/>'>Current causes</a>
+   </div>
 </petclinic:layout>
