@@ -7,6 +7,7 @@ DROP TABLE types IF EXISTS;
 DROP TABLE owners IF EXISTS;
 DROP TABLE residences IF EXISTS;
 DROP TABLE causes IF exists;
+DROP TABLE donations IF exists;
 
 
 CREATE TABLE vets (
@@ -81,3 +82,14 @@ CREATE TABLE causes (
   end_date DATE,
   objetive INTEGER NOT NULL
 );
+
+CREATE TABLE donations (
+	id INTEGER IDENTITY PRIMARY KEY,
+	donation_date DATE,
+	amount INTEGER,
+	client VARCHAR(60),
+	cause_id INTEGER NOT NULL
+);
+
+ALTER TABLE donations ADD CONSTRAINT fk_donations_causes FOREIGN KEY (cause_id) REFERENCES causes (id);
+CREATE INDEX donations_cause_id ON donations (cause_id);

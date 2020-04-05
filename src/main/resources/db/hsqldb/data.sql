@@ -56,3 +56,4 @@ INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 INSERT INTO causes VALUES(1,'Dog help','Help a injured dog','2020-09-07',100);
 INSERT INTO causes VALUES(2,'Cat help','Help a injured dog','2020-10-07',100);
 
+INSERT INTO donations VALUES(1, '2019-01-01', 20, 'John Doe', 1);

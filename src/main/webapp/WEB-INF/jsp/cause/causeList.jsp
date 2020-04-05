@@ -21,12 +21,17 @@
         <tbody>
         <c:forEach items="${causes}" var="cause">
             <tr>
-               
-                    <td><c:out value="${cause.name}"/></td>  
-                    <td><c:out value="${cause.description}"/> </td> 
-                    <td><c:out value="${cause.endDate}"/> </td> 
-                    <td><c:out value="${cause.objetive}"/> (EUR) </td> 
-                </td>                
+            	<td>
+	            	<spring:url value="/cause/{causeId}" var="showCauseUrl">
+						<spring:param name="causeId" value="${cause.id}" />
+					</spring:url>
+					<a href="${fn:escapeXml(showCauseUrl)}">
+		        		<c:out value="${cause.name}"/>
+		        	</a>
+		        </td>  
+                <td><c:out value="${cause.description}"/> </td> 
+                <td><c:out value="${cause.endDate}"/> </td> 
+                <td><c:out value="${cause.objetive}"/> (EUR) </td>                
             </tr>
         </c:forEach>
         </tbody>
