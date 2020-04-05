@@ -20,9 +20,9 @@
     </jsp:attribute>
 	<jsp:body>
         <h2>
-			<c:if test="${residence['new']}">Nuevo </c:if>alojamiento</h2>
+			<c:if test="${residence['new']}">Nueva </c:if>residencia</h2>
 
-        <b>Pet</b>
+        <b>Mascota</b>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -54,7 +54,7 @@
                 <div class="col-sm-offset-2 col-sm-10">
                     <input type="hidden" name="petId"
 						value="${residence.pet.id}" />
-                    <button class="btn btn-default" type="submit">Añadir alojamiento</button>
+                    <button class="btn btn-default" type="submit">Anadir alojamiento</button>
                 </div>
             </div>
         </form:form>

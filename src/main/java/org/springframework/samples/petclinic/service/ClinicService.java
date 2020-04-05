@@ -16,10 +16,13 @@
 package org.springframework.samples.petclinic.service;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
+import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
@@ -27,6 +30,8 @@ import org.springframework.samples.petclinic.model.Residence;
 import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
+import org.springframework.samples.petclinic.repository.CauseRepository;
+import org.springframework.samples.petclinic.repository.DonationRepository;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.ResidenceRepository;
@@ -54,14 +59,21 @@ public class ClinicService {
 
 	private ResidenceRepository residenceRepository;
 
+	private CauseRepository CauseRepository;
+	
+	private DonationRepository donationRepository;
+
 	@Autowired
 	public ClinicService(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository,
-			VisitRepository visitRepository, ResidenceRepository residenceRepository) {
+			VisitRepository visitRepository, ResidenceRepository residenceRepository, CauseRepository causeRepository,
+			DonationRepository donationRepository) {
 		this.petRepository = petRepository;
 		this.vetRepository = vetRepository;
 		this.ownerRepository = ownerRepository;
 		this.visitRepository = visitRepository;
 		this.residenceRepository = residenceRepository;
+		this.CauseRepository = causeRepository;
+		this.donationRepository = donationRepository;
 	}
 
 	@Transactional(readOnly = true)
@@ -95,10 +107,9 @@ public class ClinicService {
 	}
 
 	@Transactional
-	public void deleteVisit(Visit visit)  {
+	public void deleteVisit(Visit visit) {
 		visitRepository.delete(visit);
 	}
-
 
 	public Visit findVisitsById(int visitId) {
 		return visitRepository.findById(visitId);
@@ -149,7 +160,6 @@ public class ClinicService {
 		return visitRepository.findByPetId(petId);
 	}
 
-
 	@Transactional
 	public void saveResidence(Residence residence) throws DataAccessException {
 		residenceRepository.save(residence);
@@ -169,5 +179,24 @@ public class ClinicService {
 		residenceRepository.delete(residence);
 	}
 
+	// Cause
+
+	public void addCause(Cause cause) {
+		CauseRepository.save(cause);
+	}
+
+	public Iterable<Cause> findAll() {
+		return this.CauseRepository.findAll();
+	}
+
+	public Optional<Cause> findById(Integer causeId) {
+		return this.CauseRepository.findById(causeId);
+	}
+	
+	// Donation
+	
+	public void saveDonation(Donation donation) {
+		this.donationRepository.save(donation);
+	}
 
 }

@@ -12,9 +12,9 @@
         <thead>
         <tr>
             <th style="width: 150px;">Nombre</th>
-            <th style="width: 200px;">Dirección</th>
+            <th style="width: 200px;">Direccion</th>
             <th>Ciudad</th>
-            <th style="width: 120px">Teléfono</th>
+            <th style="width: 120px">Telefono</th>
             <th>Mascotas</th>
         </tr>
         </thead>

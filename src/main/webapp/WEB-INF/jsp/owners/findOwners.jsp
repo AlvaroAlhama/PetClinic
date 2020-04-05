@@ -30,5 +30,5 @@
     </form:form>
 
     <br/>
-    <a class="btn btn-default" href='<spring:url value="/owners/new" htmlEscape="true"/>'>Añadir propietario</a>
+    <a class="btn btn-default" href='<spring:url value="/owners/new" htmlEscape="true"/>'>Anadir propietario</a>
 </petclinic:layout>

@@ -6,7 +6,7 @@
 
 <petclinic:layout pageName="owners">
 
-	<h2>Información del propietario</h2>
+	<h2>Informacion del propietario</h2>
 
 
 	<table class="table table-striped">
@@ -15,7 +15,7 @@
 			<td><b><c:out value="${owner.firstName} ${owner.lastName}" /></b></td>
 		</tr>
 		<tr>
-			<th>Dirección</th>
+			<th>Direccion</th>
 			<td><c:out value="${owner.address}" /></td>
 		</tr>
 		<tr>
@@ -23,7 +23,7 @@
 			<td><c:out value="${owner.city}" /></td>
 		</tr>
 		<tr>
-			<th>Teléfono</th>
+			<th>Telefono</th>
 			<td><c:out value="${owner.telephone}" /></td>
 		</tr>
 	</table>
@@ -44,13 +44,13 @@
 	<spring:url value="{ownerId}/pets/new" var="addUrl">
 		<spring:param name="ownerId" value="${owner.id}" />
 	</spring:url>
-	<a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Añadir
+	<a href="${fn:escapeXml(addUrl)}" class="btn btn-default">Anadir
 		nueva mascota</a>
 
 	<br />
 	<br />
 	<br />
-	<h2>Pets and Visits</h2>
+	<h2>Mascotas y visitas</h2>
 
 
 	<table class="table table-striped">
@@ -79,7 +79,7 @@
 						<thead>
 							<tr>
 								<th>Fecha de visita</th>
-								<th>Descripción</th>
+								<th>Descripcion</th>
 							</tr>
 						</thead>
 						<c:forEach var="visit" items="${pet.visits}">
@@ -107,7 +107,7 @@
 									var="visitUrl">
 									<spring:param name="ownerId" value="${owner.id}" />
 									<spring:param name="petId" value="${pet.id}" />
-								</spring:url> <a href="${fn:escapeXml(visitUrl)}">Añadir visita</a></td>
+								</spring:url> <a href="${fn:escapeXml(visitUrl)}">Anadir visita</a></td>
 							<td><spring:url
 									value="/owners/{ownerId}/pets/{petId}/delete" var="deleteUrl">
 									<spring:param name="ownerId" value="${owner.id}" />
@@ -148,7 +148,7 @@
 									var="residenceUrl">
 									<spring:param name="ownerId" value="${owner.id}" />
 									<spring:param name="petId" value="${pet.id}" />
-								</spring:url> <a href="${fn:escapeXml(residenceUrl)}">Añadir alojamiento</a>
+								</spring:url> <a href="${fn:escapeXml(residenceUrl)}">Anadir residencia</a>
 							</td>
 						</tr>
 					</table>
