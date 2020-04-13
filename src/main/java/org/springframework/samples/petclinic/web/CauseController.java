@@ -10,6 +10,7 @@ import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +26,16 @@ public class CauseController {
 	@Autowired
 	public CauseController(ClinicService causeService) {
 		this.causeService = causeService;
+	}
+	
+	@InitBinder
+	public void setAllowedFields(WebDataBinder dataBinder) {
+		dataBinder.setDisallowedFields("id");
+	}
+	
+	@InitBinder("cause")
+	public void initCauseBinder(WebDataBinder dataBinder) {
+		dataBinder.setValidator(new CauseValidator(causeService));
 	}
 	
 	@GetMapping()
