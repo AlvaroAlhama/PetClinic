@@ -1,10 +1,7 @@
 package org.springframework.samples.petclinic.web;
 
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.samples.petclinic.model.Cause;
 import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.validation.Errors;
@@ -14,7 +11,7 @@ public class DonationValidator implements Validator {
 	
 	private static final String REQUIRED = "requerido";
 
-	private final ClinicService clinicService;
+	public final ClinicService clinicService;
 
 	@Autowired
 	public DonationValidator(ClinicService clinicService) {
