@@ -32,30 +32,30 @@ In the retrospective meeting, the team has a discussion about those results.
 
 ## Sprint Template
 
-| Day           | Alvaro Aguilar Alhama    | Yoana Dimitrova Penkova     | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
+| Day           | Alvaro Aguilar Alhama    | Yoana Dimitrova Penkova     | Juan Luis Muñoz Navarro     | Juan Pablo Portero Montaño    | Fernando Ruiz Robles     | Ignacio Sanabria Alonso de Caso     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
-| Day 1         |               |                |                |                |                |                |
-| Day 2         |               |                |                |                |                |                |
-| Day 3         |               |                |                |                |                |                |
-| Day 4         |               |                |                |                |                |                |
-| Day 5         |               |                |                |                |                |                |
-| Day 6         |               |                |                |                |                |                |
-| Day 7         |               |                |                |                |                |                |
-| Day 8         |               |                |                |                |                |                |
-| Day 9         |               |                |                |                |                |                |
-| Day 10        |               |                |                |                |                |                |
-| Day 11        |               |                |                |                |                |                |
-| Day 12        |               |                |                |                |                |                |
-| Day 13        |               |                |                |                |                |                |
-| Day 14        |               |                |                |                |                |                |
-| Day 15        |               |                |                |                |                |                |
-| Day 16        |               |                |                |                |                |                |
-| Day 17        |               |                |                |                |                |                |
-| Day 18        |               |                |                |                |                |                |
-| Day 19        |               |                |                |                |                |                |
-| Day 20        |               |                |                |                |                |                |
-| Day 21        |               |                |                |                |                |                |
-| Day 22        |               |                |                |                |                |                |
+| Day 1         |               |-                |                |                |:smiley:                |                |
+| Day 2         |               |-                |                |                |:smiley:                |                |
+| Day 3         |               |-                |                |                |-                |                |
+| Day 4         |               |-                |                |                |-                |                |
+| Day 5         |               |-                |                |                |-                |                |
+| Day 6         |               |-                |                |                |-                |                |
+| Day 7         |               |-                |                |                |-                |                |
+| Day 8         |               |-                |                |                |-                |                |
+| Day 9         |               |-                |                |                |-                |                |
+| Day 10        |               |-                |                |                |-                |                |
+| Day 11        |               |-                |                |                |:smiley:                |                |
+| Day 12        |               |-                |                |                |:smiley:                |                |
+| Day 13        |               |-                |                |                |-                |                |
+| Day 14        |               |:smiley:                |                |                |-                |                |
+| Day 15        |               |-                |                |                |-                |                |
+| Day 16        |               |-                |                |                |-                |                |
+| Day 17        |               |-                |                |                |-                |                |
+| Day 18        |               |-                |                |                |-                |                |
+| Day 19        |               |-                |                |                |-                |                |
+| Day 20        |               |-                |                |                |-                |                |
+| Day 21        |               |-                |                |                |-                |                |
+| Day 22        |:smiley:               |:smiley:                |:smiley:                |:smiley:                |:smiley:                |:smiley:                |
 | Day 23        |               |                |                |                |                |                |
 | Day 24        |               |                |                |                |                |                |
 | Day 25        |               |                |                |                |                |                |
