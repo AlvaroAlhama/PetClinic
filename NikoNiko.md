@@ -32,7 +32,7 @@ In the retrospective meeting, the team has a discussion about those results.
 
 ## Sprint Template
 
-| Day           | [Member A]    | [Member B]     | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
+| Day           | Alvaro Aguilar Alhama    | Yoana Dimitrova Penkova     | [Member C]     | [Member D]     | [Member E]     | [Member F]     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
 | Day 1         |               |                |                |                |                |                |
 | Day 2         |               |                |                |                |                |                |
