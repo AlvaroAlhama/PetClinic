@@ -37,8 +37,8 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 1         |               |-                |                |                |:smiley:                |:smiley:                |
 | Day 2         |               |-                |                |                |:smiley:                |                |
 | Day 3         |               |-                |                |                |-                |                |
-| Day 4         |               |-                |                |                |-                |                |
-| Day 5         |               |-                |                |                |-                |                |
+| Day 4         |               |-                |                |                |-                |:smiley:                |
+| Day 5         |               |-                |                |                |-                |:smiley:                |
 | Day 6         |               |-                |                |                |-                |                |
 | Day 7         |               |-                |                |                |-                |                |
 | Day 8         |               |-                |                |                |-                |                |
