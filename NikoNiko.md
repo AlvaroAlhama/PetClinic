@@ -1,4 +1,4 @@
-# Niko Niko Calendar of team X
+# Niko Niko Calendar of team 62
 ## Introduction
 Some interesting links about what a Niko Niko calendar is and opinions about its use in software development:
 
