@@ -34,7 +34,7 @@ In the retrospective meeting, the team has a discussion about those results.
 
 | Day           | Alvaro Aguilar Alhama    | Yoana Dimitrova Penkova     | Juan Luis Muñoz Navarro     | Juan Pablo Portero Montaño    | Fernando Ruiz Robles     | Ignacio Sanabria Alonso de Caso     |
 | ------------- | ------------- | -------------  | -------------  | -------------  | -------------  | -------------  |
-| Day 1         |               |-                |                |                |:smiley:                |                |
+| Day 1         |               |-                |                |                |:smiley:                |                |:smiley:
 | Day 2         |               |-                |                |                |:smiley:                |                |
 | Day 3         |               |-                |                |                |-                |                |
 | Day 4         |               |-                |                |                |-                |                |
