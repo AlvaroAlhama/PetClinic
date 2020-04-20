@@ -56,13 +56,13 @@ In the retrospective meeting, the team has a discussion about those results.
 | Day 20        |       -       |-               |-               |                |-               |-               |
 | Day 21        |       -       |-               |-               |                |-               |-               |
 | Day 22        |:smiley:       |:smiley:        |:smiley:        |:smiley:        |:smiley:        |:smiley:        |
-| Day 23        |     :smiley:  |                |-               |                |                |-               |
-| Day 24        |        -      |                |-               |                |                |-               |
-| Day 25        |        -      |                |-               |                |                |-               |
-| Day 26        |        -      |                |-               |                |                |:smiley:        |
-| Day 27        |        -      |                |:smiley:        |                |                |:smiley:        |
-| Day 28        |     :smiley:  |                |-               |                |                |:smiley:        |
-| Day 29        |        -      |                |-               |                |                |-               |
+| Day 23        |     :smiley:  |-               |-               |                |                |-               |
+| Day 24        |        -      |-               |-               |                |                |-               |
+| Day 25        |        -      |-               |-               |                |                |-               |
+| Day 26        |        -      |-               |-               |                |                |:smiley:        |
+| Day 27        |        -      |-               |:smiley:        |                |                |:smiley:        |
+| Day 28        |     :smiley:  |-               |-               |                |                |:smiley:        |
+| Day 29        |        -      |:smiley:        |-               |                |                |-               |
 | Day 30        |        -      |                |-               |                |                |-               |
 | Day 31        |        -      |                |-               |                |                |-               |
 | Day 32        |        -      |                |-               |                |                |-               |
