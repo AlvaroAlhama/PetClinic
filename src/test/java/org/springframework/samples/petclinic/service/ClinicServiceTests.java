@@ -17,44 +17,49 @@ package org.springframework.samples.petclinic.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.security.Provider.Service;
 import java.time.LocalDate;
 import java.util.Collection;
+import java.util.Optional;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.samples.petclinic.model.Cause;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
+import org.springframework.samples.petclinic.model.Residence;
+import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.util.EntityUtils;
+import org.springframework.stereotype.Service;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Integration test of the Service and the Repository layer.
  * <p>
- * ClinicServiceSpringDataJpaTests subclasses benefit from the following services provided
- * by the Spring TestContext Framework:
+ * ClinicServiceSpringDataJpaTests subclasses benefit from the following
+ * services provided by the Spring TestContext Framework:
  * </p>
  * <ul>
- * <li><strong>Spring IoC container caching</strong> which spares us unnecessary set up
- * time between test execution.</li>
- * <li><strong>Dependency Injection</strong> of test fixture instances, meaning that we
- * don't need to perform application context lookups. See the use of
+ * <li><strong>Spring IoC container caching</strong> which spares us unnecessary
+ * set up time between test execution.</li>
+ * <li><strong>Dependency Injection</strong> of test fixture instances, meaning
+ * that we don't need to perform application context lookups. See the use of
  * {@link Autowired @Autowired} on the <code>{@link
- * ClinicServiceTests#clinicService clinicService}</code> instance variable, which uses
- * autowiring <em>by type</em>.
- * <li><strong>Transaction management</strong>, meaning each test method is executed in
- * its own transaction, which is automatically rolled back by default. Thus, even if tests
- * insert or otherwise change database state, there is no need for a teardown or cleanup
- * script.
- * <li>An {@link org.springframework.context.ApplicationContext ApplicationContext} is
- * also inherited and can be used for explicit bean lookup if necessary.</li>
+ * ClinicServiceTests#clinicService clinicService}</code> instance variable,
+ * which uses autowiring <em>by type</em>.
+ * <li><strong>Transaction management</strong>, meaning each test method is
+ * executed in its own transaction, which is automatically rolled back by
+ * default. Thus, even if tests insert or otherwise change database state, there
+ * is no need for a teardown or cleanup script.
+ * <li>An {@link org.springframework.context.ApplicationContext
+ * ApplicationContext} is also inherited and can be used for explicit bean
+ * lookup if necessary.</li>
  * </ul>
  *
  * @author Ken Krebs
@@ -66,13 +71,13 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @ExtendWith(SpringExtension.class)
 @DataJpaTest(includeFilters = @ComponentScan.Filter(Service.class))
-abstract class ClinicServiceTests {
+public class ClinicServiceTests {
 
 	@Autowired
 	protected ClinicService clinicService;
 
 	@Test
-	void shouldFindOwnersByLastName() {
+	public void shouldFindOwnersByLastName() {
 		Collection<Owner> owners = this.clinicService.findOwnerByLastName("Davis");
 		assertThat(owners.size()).isEqualTo(2);
 
@@ -81,7 +86,7 @@ abstract class ClinicServiceTests {
 	}
 
 	@Test
-	void shouldFindSingleOwnerWithPet() {
+	public void shouldFindSingleOwnerWithPet() {
 		Owner owner = this.clinicService.findOwnerById(1);
 		assertThat(owner.getLastName()).startsWith("Franklin");
 		assertThat(owner.getPets().size()).isEqualTo(1);
@@ -110,7 +115,7 @@ abstract class ClinicServiceTests {
 
 	@Test
 	@Transactional
-	void shouldUpdateOwner() {
+	public void shouldUpdateOwner() {
 		Owner owner = this.clinicService.findOwnerById(1);
 		String oldLastName = owner.getLastName();
 		String newLastName = oldLastName + "X";
@@ -124,7 +129,15 @@ abstract class ClinicServiceTests {
 	}
 
 	@Test
-	void shouldFindPetWithCorrectId() {
+	public void shouldDeleteOwner() throws Exception {
+		Owner owner = this.clinicService.findOwnerById(1);
+		this.clinicService.deleteOwner(owner);
+		Owner ownerNew = this.clinicService.findOwnerById(1);
+		assertThat(ownerNew).isEqualTo(null);
+	}
+
+	@Test
+	public void shouldFindPetWithCorrectId() {
 		Pet pet7 = this.clinicService.findPetById(7);
 		assertThat(pet7.getName()).startsWith("Samantha");
 		assertThat(pet7.getOwner().getFirstName()).isEqualTo("Jean");
@@ -132,7 +145,7 @@ abstract class ClinicServiceTests {
 	}
 
 	@Test
-	void shouldFindAllPetTypes() {
+	public void shouldFindAllPetTypes() {
 		Collection<PetType> petTypes = this.clinicService.findPetTypes();
 
 		PetType petType1 = EntityUtils.getById(petTypes, PetType.class, 1);
@@ -179,7 +192,15 @@ abstract class ClinicServiceTests {
 	}
 
 	@Test
-	void shouldFindVets() {
+	public void shouldDeletePet() throws Exception {
+		Pet pet = this.clinicService.findPetById(1);
+		this.clinicService.deletePet(pet);
+		Pet petNew = this.clinicService.findPetById(1);
+		assertThat(petNew).isEqualTo(null);
+	}
+
+	@Test
+	public void shouldFindVets() {
 		Collection<Vet> vets = this.clinicService.findVets();
 
 		Vet vet = EntityUtils.getById(vets, Vet.class, 3);
@@ -187,6 +208,29 @@ abstract class ClinicServiceTests {
 		assertThat(vet.getNrOfSpecialties()).isEqualTo(2);
 		assertThat(vet.getSpecialties().get(0).getName()).isEqualTo("dentistry");
 		assertThat(vet.getSpecialties().get(1).getName()).isEqualTo("surgery");
+	}
+
+	@Test
+	public void shouldFindVetById() throws Exception {
+		Vet vet = this.clinicService.findVetById(3);
+		assertThat(vet.getLastName()).isEqualTo("Douglas");
+		assertThat(vet.getNrOfSpecialties()).isEqualTo(2);
+		assertThat(vet.getSpecialties().get(0).getName()).isEqualTo("dentistry");
+		assertThat(vet.getSpecialties().get(1).getName()).isEqualTo("surgery");
+	}
+
+	@Test
+	public void shouldDeleteVet() throws Exception {
+		Vet vet = this.clinicService.findVetById(1);
+		this.clinicService.deleteVet(vet);
+		Vet vetNew = this.clinicService.findVetById(1);
+		assertThat(vetNew).isEqualTo(null);
+	}
+
+	public void shouldFindSpecialties() {
+		Collection<Specialty> specialties = this.clinicService.findAllSpecialty();
+		Specialty specialty = EntityUtils.getById(specialties, Specialty.class, 1);
+		assertThat(specialty.getName()).isEqualTo("radiology");
 	}
 
 	@Test
@@ -206,13 +250,52 @@ abstract class ClinicServiceTests {
 	}
 
 	@Test
-	void shouldFindVisitsByPetId() throws Exception {
+	public void shouldFindVisitsByPetId() throws Exception {
 		Collection<Visit> visits = this.clinicService.findVisitsByPetId(7);
 		assertThat(visits.size()).isEqualTo(2);
 		Visit[] visitArr = visits.toArray(new Visit[visits.size()]);
 		assertThat(visitArr[0].getPet()).isNotNull();
 		assertThat(visitArr[0].getDate()).isNotNull();
 		assertThat(visitArr[0].getPet().getId()).isEqualTo(7);
+	}
+
+	@Test
+	public void shouldFindVisitById() throws Exception {
+		Visit visit = this.clinicService.findVisitsById(1);
+		assertThat(visit.getDescription()).isEqualTo("rabies shot");
+		assertThat(visit.getPet().getId()).isEqualTo(7);
+	}
+
+	@Test
+	public void shouldDeleteVisit() throws Exception {
+		Visit visit = this.clinicService.findVisitsById(1);
+		this.clinicService.deleteVisit(visit);
+		Visit visitNew = this.clinicService.findVisitsById(1);
+		assertThat(visitNew).isEqualTo(null);
+	}
+
+	@Test
+	public void shouldFindResidencesByPetId() throws Exception {
+		Collection<Residence> residences = this.clinicService.findResidencesByPetId(1);
+		assertThat(residences.size()).isEqualTo(0);
+	}
+
+	@Test
+	public void shouldFindResidenceById() throws Exception {
+		Residence residence = this.clinicService.findResidenceById(1);
+		assertThat(residence).isEqualTo(null);
+	}
+
+	@Test
+	public void shouldFindCauses() throws Exception {
+		Iterable<Cause> causes = this.clinicService.findAll();
+		assertThat(causes.iterator().next().getName()).isEqualTo("Dog help");
+	}
+
+	@Test
+	public void shouldFindCauseById() throws Exception {
+		Optional<Cause> cause = this.clinicService.findById(1);
+		assertThat(cause.get().getName()).isEqualTo("Dog help");
 	}
 
 }
