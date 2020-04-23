@@ -13,9 +13,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class ExceptionHandlerConfiguration 
 {
-//	@Autowired
-//	private BasicErrorController errorController;
-//    // add any exceptions/validations/binding problems
 
    @ExceptionHandler(Exception.class)
    public String defaultErrorHandler(HttpServletRequest request,  Exception ex)  {

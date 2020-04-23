@@ -15,6 +15,7 @@
  */
 package org.springframework.samples.petclinic.service;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Optional;
 
@@ -59,7 +60,7 @@ public class ClinicService {
 
 	private ResidenceRepository residenceRepository;
 
-	private CauseRepository CauseRepository;
+	private CauseRepository causeRepository;
 	
 	private DonationRepository donationRepository;
 
@@ -72,7 +73,7 @@ public class ClinicService {
 		this.ownerRepository = ownerRepository;
 		this.visitRepository = visitRepository;
 		this.residenceRepository = residenceRepository;
-		this.CauseRepository = causeRepository;
+		this.causeRepository = causeRepository;
 		this.donationRepository = donationRepository;
 	}
 
@@ -182,21 +183,25 @@ public class ClinicService {
 	// Cause
 
 	public void addCause(Cause cause) {
-		CauseRepository.save(cause);
+		causeRepository.save(cause);
 	}
 
 	public Iterable<Cause> findAll() {
-		return this.CauseRepository.findAll();
+		return this.causeRepository.findAll();
 	}
 
 	public Optional<Cause> findById(Integer causeId) {
-		return this.CauseRepository.findById(causeId);
+		return this.causeRepository.findById(causeId);
 	}
 	
 	// Donation
 	
 	public void saveDonation(Donation donation) {
 		this.donationRepository.save(donation);
+	}
+	
+	public Integer compruebaResidence(LocalDate register, LocalDate release, int petId) {
+		return this.residenceRepository.count(register, release, petId);
 	}
 
 }
