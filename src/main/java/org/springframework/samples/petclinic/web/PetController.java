@@ -113,14 +113,14 @@ public class PetController {
 		}
 	}
 
-	@RequestMapping(value = "/pets/{petId}/delete", method = RequestMethod.GET)
+	@GetMapping(value = "/pets/{petId}/delete")
 	public String processDeleteForm(@PathVariable("petId") int petId, @PathVariable("ownerId") int ownerId) {
 
 		Pet pet = clinicService.findPetById(petId);
 		Owner owner = clinicService.findOwnerById(ownerId);
 		owner.deletePet(pet);
 		this.clinicService.deletePet(pet);
-		return "redirect:/owners/{ownerId}";
+		return VIEWS_REDIRECT_OWNERS;
 	}
 
 }

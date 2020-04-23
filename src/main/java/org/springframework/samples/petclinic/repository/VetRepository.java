@@ -43,8 +43,7 @@ public interface VetRepository {
 	Vet findVetById(int id);
 	
 	void save(Vet vet);
-	
-	//Specialty
+
 	
 	List<Specialty> findAllSpecialty();
 
