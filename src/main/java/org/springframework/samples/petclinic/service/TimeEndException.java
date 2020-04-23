@@ -3,7 +3,7 @@ package org.springframework.samples.petclinic.service;
 public class TimeEndException extends Exception {
 
 	public TimeEndException(String string) {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	/**

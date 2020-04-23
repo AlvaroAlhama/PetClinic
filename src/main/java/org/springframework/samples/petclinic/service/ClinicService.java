@@ -21,7 +21,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Cause;
 import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
@@ -78,32 +77,32 @@ public class ClinicService {
 	}
 
 	@Transactional(readOnly = true)
-	public Collection<PetType> findPetTypes() throws DataAccessException {
+	public Collection<PetType> findPetTypes(){
 		return petRepository.findPetTypes();
 	}
 
 	@Transactional(readOnly = true)
-	public Owner findOwnerById(int id) throws DataAccessException {
+	public Owner findOwnerById(int id)  {
 		return ownerRepository.findById(id);
 	}
 
 	@Transactional(readOnly = true)
-	public Collection<Owner> findOwnerByLastName(String lastName) throws DataAccessException {
+	public Collection<Owner> findOwnerByLastName(String lastName)  {
 		return ownerRepository.findByLastName(lastName);
 	}
 
 	@Transactional
-	public void saveOwner(Owner owner) throws DataAccessException {
+	public void saveOwner(Owner owner)  {
 		ownerRepository.save(owner);
 	}
 
 	@Transactional
-	public void deleteOwner(Owner owner) throws DataAccessException {
+	public void deleteOwner(Owner owner)  {
 		ownerRepository.delete(owner);
 	}
 
 	@Transactional
-	public void saveVisit(Visit visit) throws DataAccessException {
+	public void saveVisit(Visit visit)  {
 		visitRepository.save(visit);
 	}
 
@@ -117,43 +116,43 @@ public class ClinicService {
 	}
 
 	@Transactional(readOnly = true)
-	public Pet findPetById(int id) throws DataAccessException {
+	public Pet findPetById(int id)  {
 		return petRepository.findById(id);
 	}
 
 	@Transactional
-	public void savePet(Pet pet) throws DataAccessException {
+	public void savePet(Pet pet)  {
 		petRepository.save(pet);
 	}
 
 	@Transactional
-	public void deletePet(Pet pet) throws DataAccessException {
+	public void deletePet(Pet pet)  {
 		petRepository.delete(pet);
 	}
 
 	@Transactional(readOnly = true)
 	@Cacheable(value = "vets")
-	public Collection<Vet> findVets() throws DataAccessException {
+	public Collection<Vet> findVets()  {
 		return vetRepository.findAll();
 	}
 
 	@Transactional(readOnly = true)
-	public Vet findVetById(int id) throws DataAccessException {
+	public Vet findVetById(int id)  {
 		return vetRepository.findById(id);
 	}
 
 	@Transactional
-	public void deleteVet(Vet vet) throws DataAccessException {
+	public void deleteVet(Vet vet)  {
 		this.vetRepository.delete(vet);
 	}
 
 	@Transactional
-	public void saveVet(Vet vet) throws DataAccessException {
+	public void saveVet(Vet vet)  {
 		this.vetRepository.save(vet);
 	}
 
 	@Transactional(readOnly = true)
-	public Collection<Specialty> findAllSpecialty() throws DataAccessException {
+	public Collection<Specialty> findAllSpecialty()  {
 		return this.vetRepository.findAllSpecialty();
 	}
 
@@ -162,7 +161,7 @@ public class ClinicService {
 	}
 
 	@Transactional
-	public void saveResidence(Residence residence) throws DataAccessException {
+	public void saveResidence(Residence residence)  {
 		residenceRepository.save(residence);
 	}
 
@@ -171,12 +170,12 @@ public class ClinicService {
 	}
 
 	@Transactional(readOnly = true)
-	public Residence findResidenceById(int id) throws DataAccessException {
+	public Residence findResidenceById(int id)  {
 		return residenceRepository.findById(id);
 	}
 
 	@Transactional
-	public void deleteResidence(Residence residence) throws DataAccessException {
+	public void deleteResidence(Residence residence)  {
 		residenceRepository.delete(residence);
 	}
 
