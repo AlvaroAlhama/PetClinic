@@ -43,6 +43,8 @@ public class PetController {
 	private static final String VIEWS_PETS_CREATE_OR_UPDATE_FORM = "pets/createOrUpdatePetForm";
 
 	private final ClinicService clinicService;
+	
+	private static final String VIEWS_REDIRECT_OWNERS =  "redirect:/owners/{ownerId}";
 
 	@Autowired
 	public PetController(ClinicService clinicService) {
@@ -85,11 +87,10 @@ public class PetController {
 		if (result.hasErrors()) {
 			model.put("pet", pet);
 			return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
-		}
-		else {
+		} else {
 			owner.addPet(pet);
 			this.clinicService.savePet(pet);
-			return "redirect:/owners/{ownerId}";
+			return VIEWS_REDIRECT_OWNERS;
 		}
 	}
 
@@ -105,23 +106,21 @@ public class PetController {
 		if (result.hasErrors()) {
 			model.put("pet", pet);
 			return VIEWS_PETS_CREATE_OR_UPDATE_FORM;
-		}
-		else {
+		} else {
 			owner.addPet(pet);
 			this.clinicService.savePet(pet);
-			return "redirect:/owners/{ownerId}";
+			return VIEWS_REDIRECT_OWNERS;
 		}
 	}
-	
-	@RequestMapping(value = "/pets/{petId}/delete")
-	public String processDeleteForm(@PathVariable("petId") int petId,@PathVariable("ownerId") int ownerId) {
-	    
-			Pet pet = clinicService.findPetById(petId);
-			Owner owner = clinicService.findOwnerById(ownerId);
-			owner.deletePet(pet);
-			this.clinicService.deletePet(pet);
-			return "redirect:/owners/{ownerId}";
-		}
-	
+
+	@RequestMapping(value = "/pets/{petId}/delete", method = RequestMethod.GET)
+	public String processDeleteForm(@PathVariable("petId") int petId, @PathVariable("ownerId") int ownerId) {
+
+		Pet pet = clinicService.findPetById(petId);
+		Owner owner = clinicService.findOwnerById(ownerId);
+		owner.deletePet(pet);
+		this.clinicService.deletePet(pet);
+		return "redirect:/owners/{ownerId}";
+	}
 
 }

@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -55,7 +56,7 @@ public class CauseController {
 		
 		if(cause.isPresent()) {
 			model.addAttribute("cause", cause.get());
-			causeAmount = cause.get().getDonations().stream().mapToInt(d -> d.getAmount()).sum();
+			causeAmount = cause.get().getDonations().stream().mapToInt(Donation::getAmount).sum();
 			model.addAttribute("causeAmount", causeAmount);
 			view = "cause/causeShow";
 		} else {
