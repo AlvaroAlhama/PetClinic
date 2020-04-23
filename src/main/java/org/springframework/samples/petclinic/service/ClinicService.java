@@ -22,6 +22,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.dao.DataAccessException;
 import org.springframework.samples.petclinic.model.Cause;
+import org.springframework.samples.petclinic.model.Donation;
 import org.springframework.samples.petclinic.model.Owner;
 import org.springframework.samples.petclinic.model.Pet;
 import org.springframework.samples.petclinic.model.PetType;
@@ -30,6 +31,7 @@ import org.springframework.samples.petclinic.model.Specialty;
 import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.model.Visit;
 import org.springframework.samples.petclinic.repository.CauseRepository;
+import org.springframework.samples.petclinic.repository.DonationRepository;
 import org.springframework.samples.petclinic.repository.OwnerRepository;
 import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.ResidenceRepository;
@@ -58,16 +60,20 @@ public class ClinicService {
 	private ResidenceRepository residenceRepository;
 
 	private CauseRepository CauseRepository;
+	
+	private DonationRepository donationRepository;
 
 	@Autowired
 	public ClinicService(PetRepository petRepository, VetRepository vetRepository, OwnerRepository ownerRepository,
-			VisitRepository visitRepository, ResidenceRepository residenceRepository, CauseRepository causeRepository) {
+			VisitRepository visitRepository, ResidenceRepository residenceRepository, CauseRepository causeRepository,
+			DonationRepository donationRepository) {
 		this.petRepository = petRepository;
 		this.vetRepository = vetRepository;
 		this.ownerRepository = ownerRepository;
 		this.visitRepository = visitRepository;
 		this.residenceRepository = residenceRepository;
 		this.CauseRepository = causeRepository;
+		this.donationRepository = donationRepository;
 	}
 
 	@Transactional(readOnly = true)
@@ -184,8 +190,13 @@ public class ClinicService {
 	}
 
 	public Optional<Cause> findById(Integer causeId) {
-
 		return this.CauseRepository.findById(causeId);
+	}
+	
+	// Donation
+	
+	public void saveDonation(Donation donation) {
+		this.donationRepository.save(donation);
 	}
 
 }
