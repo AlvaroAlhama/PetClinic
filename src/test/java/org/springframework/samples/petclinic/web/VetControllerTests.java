@@ -1,10 +1,13 @@
 package org.springframework.samples.petclinic.web;
 
 import static org.hamcrest.xml.HasXPath.hasXPath;
+import static org.hamcrest.Matchers.hasProperty;
+import static org.hamcrest.Matchers.is;
 import static org.mockito.BDDMockito.given;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
@@ -21,16 +24,12 @@ import org.springframework.samples.petclinic.model.Vet;
 import org.springframework.samples.petclinic.service.ClinicService;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.ResultActions;
 
 /**
  * Test class for the {@link VetController}
  */
 @WebMvcTest(VetController.class)
 class VetControllerTests {
-
-//	@Autowired
-//	private VetController vetController;
 
 	@MockBean
 	private ClinicService clinicService;
@@ -54,26 +53,64 @@ class VetControllerTests {
 		radiology.setName("radiology");
 		helen.addSpecialty(radiology);
 		given(this.clinicService.findVets()).willReturn(Lists.newArrayList(james, helen));
+		given(this.clinicService.findVetById(1)).willReturn(james);
+		given(this.clinicService.findVetById(2)).willReturn(helen);
 	}
-        
-        @WithMockUser(value = "spring")
+
+	@WithMockUser(value = "spring")
 	@Test
 	void testShowVetListHtml() throws Exception {
-		mockMvc.perform(get("/vets.html")).andExpect(status().isOk()).andExpect(model().attributeExists("vets"))
+		mockMvc.perform(get("/vets")).andExpect(status().isOk()).andExpect(model().attributeExists("vets"))
 				.andExpect(view().name("vets/vetList"));
 	}
 
 	@WithMockUser(value = "spring")
-        @Test
-	void testShowResourcesVetList() throws Exception {
-		ResultActions actions = mockMvc.perform(get("/vets.json").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk());
-		actions.andExpect(content().contentType(MediaType.APPLICATION_JSON))
-				.andExpect(jsonPath("$.vetList[0].id").value(1));
+	@Test
+	void testShowVet() throws Exception {
+		mockMvc.perform(get("/vets/{vetId}", 1)).andExpect(status().isOk()).andExpect(model().attributeExists("vet"))
+				.andExpect(view().name("vets/vetDetails"));
 	}
 
 	@WithMockUser(value = "spring")
-        @Test
+	@Test
+	void testInitNewVetForm() throws Exception {
+		mockMvc.perform(get("/vets/new")).andExpect(status().isOk())
+				.andExpect(view().name("vets/createOrUpdateVetForm"));
+	}
+
+	@WithMockUser(value = "spring")
+	@Test
+	void testProcessNewVetFormSuccess() throws Exception {
+		mockMvc.perform(post("/vets/new").with(csrf()).param("firstName", "nombre").param("lastName", "apellido"))
+				.andExpect(status().is3xxRedirection()).andExpect(view().name("redirect:/vets/null"));
+	}
+
+	@WithMockUser(value = "spring")
+	@Test
+	void testInitUpdateVetForm() throws Exception {
+		mockMvc.perform(get("/vets/{vetId}/edit", 1)).andExpect(status().isOk())
+				.andExpect(model().attribute("vet", hasProperty("firstName", is("James"))))
+				.andExpect(model().attribute("vet", hasProperty("lastName", is("Carter"))))
+				.andExpect(view().name("vets/createOrUpdateVetForm"));
+	}
+
+	@WithMockUser(value = "spring")
+	@Test
+	void testProcessUpdateVetFormSuccess() throws Exception {
+		mockMvc.perform(
+				post("/vets/{vetId}/edit", 1).with(csrf()).param("firstName", "nombre").param("lastName", "apellido"))
+				.andExpect(status().is3xxRedirection()).andExpect(view().name("redirect:/vets/{vetId}"));
+	}
+	
+	@WithMockUser(value = "spring")
+	@Test
+	void testDeleteVet() throws Exception {
+		mockMvc.perform(get("/vets/{vetId}/delete", 2))
+				.andExpect(status().is3xxRedirection()).andExpect(view().name("redirect:/vets"));
+	}
+
+	@WithMockUser(value = "spring")
+	@Test
 	void testShowVetListXml() throws Exception {
 		mockMvc.perform(get("/vets.xml").accept(MediaType.APPLICATION_XML)).andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_XML_VALUE))
