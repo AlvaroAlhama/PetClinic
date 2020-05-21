@@ -11,9 +11,4 @@
             <img class="img-responsive" src="${petsImage}"/>
         </div>
     </div>
-    
-    <div>
-        <h3>Causes</h3>
-        <a class="btn btn-default" href='<spring:url value="/cause" htmlEscape="true"/>'>Current causes</a>
-   </div>
 </petclinic:layout>
