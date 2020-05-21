@@ -25,7 +25,7 @@ public class DonationValidator implements Validator {
 		if (donation.getAmount()==null) {
 			errors.rejectValue("amount", REQUIRED, REQUIRED);
 		}else {
-			if (donation.getAmount()<0) {
+			if (donation.getAmount()<=0) {
 			errors.rejectValue("amount", "El valor de la donacion debe ser positivo", "El valor de la donacion debe ser positivo");
 			}
 	    }
