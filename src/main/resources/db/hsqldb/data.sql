@@ -5,9 +5,9 @@ INSERT INTO vets VALUES (4, 'Rafael', 'Ortega');
 INSERT INTO vets VALUES (5, 'Henry', 'Stevens');
 INSERT INTO vets VALUES (6, 'Sharon', 'Jenkins');
 
-INSERT INTO specialties VALUES (1, 'radiology');
-INSERT INTO specialties VALUES (2, 'surgery');
-INSERT INTO specialties VALUES (3, 'dentistry');
+INSERT INTO specialties VALUES (1, 'radiologia');
+INSERT INTO specialties VALUES (2, 'cirugia');
+INSERT INTO specialties VALUES (3, 'dentista');
 
 INSERT INTO vet_specialties VALUES (2, 1);
 INSERT INTO vet_specialties VALUES (3, 2);
@@ -15,11 +15,11 @@ INSERT INTO vet_specialties VALUES (3, 3);
 INSERT INTO vet_specialties VALUES (4, 2);
 INSERT INTO vet_specialties VALUES (5, 1);
 
-INSERT INTO types VALUES (1, 'cat');
-INSERT INTO types VALUES (2, 'dog');
-INSERT INTO types VALUES (3, 'lizard');
-INSERT INTO types VALUES (4, 'snake');
-INSERT INTO types VALUES (5, 'bird');
+INSERT INTO types VALUES (1, 'gato');
+INSERT INTO types VALUES (2, 'perro');
+INSERT INTO types VALUES (3, 'lagarto');
+INSERT INTO types VALUES (4, 'serpiente');
+INSERT INTO types VALUES (5, 'pajaro');
 INSERT INTO types VALUES (6, 'hamster');
 
 INSERT INTO owners VALUES (1, 'George', 'Franklin', '110 W. Liberty St.', 'Madison', '6085551023');
@@ -53,7 +53,7 @@ INSERT INTO visits VALUES (3, 8, '2013-01-03', 'neutered');
 INSERT INTO visits VALUES (4, 7, '2013-01-04', 'spayed');
 
 
-INSERT INTO causes VALUES(1,'Dog help','Help a injured dog','2020-09-07',100);
-INSERT INTO causes VALUES(2,'Cat help','Help a injured dog','2020-10-07',100);
+INSERT INTO causes VALUES(1,'ayuda perro','ayudar a un perro herido','2020-09-07',100);
+INSERT INTO causes VALUES(2,'ayuda gato','ayudar a un gato herido','2020-10-07',100);
 
 INSERT INTO donations VALUES(1, '2019-01-01', 20, 'John Doe', 1);
