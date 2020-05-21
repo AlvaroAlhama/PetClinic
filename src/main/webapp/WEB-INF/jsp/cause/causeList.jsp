@@ -37,6 +37,6 @@
         </tbody>
     </table>
     <form action="/cause/new">
-        <button type="submit" class="btn btn-default">Añadir una causa</button>
+        <button type="submit" class="btn btn-default">Aï¿½adir una causa</button>
     </form>
 </petclinic:layout>

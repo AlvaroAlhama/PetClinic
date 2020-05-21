@@ -16,4 +16,5 @@
         <h3>Causas</h3>
         <a class="btn btn-default" href='<spring:url value="/cause" htmlEscape="true"/>'>Causas actuales</a>
    </div>
+
 </petclinic:layout>

@@ -33,6 +33,11 @@
                     <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
                     <span><fmt:message key="vet"/></span>
                 </petclinic:menuItem>
+                
+                <petclinic:menuItem active="${name eq 'causes'}" url="/cause" title="causes">
+                    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+                    <span>Causas</span>
+                </petclinic:menuItem>
 
                 <petclinic:menuItem active="${name eq 'error'}" url="/oups"
                             title="trigger a RuntimeException to see how it is handled">
