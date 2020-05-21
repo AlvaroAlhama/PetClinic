@@ -78,6 +78,7 @@ public class ClinicService {
 
 	@Transactional(readOnly = true)
 	public Collection<PetType> findPetTypes(){
+		
 		return petRepository.findPetTypes();
 	}
 
